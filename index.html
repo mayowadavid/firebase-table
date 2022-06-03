@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<link rel="stylesheet" href="style.css"> 
+    </head>
+    <body>
+        <div class="header">
+            <div>
+                <button onclick="logout()" style="background:none;border:none;"> <img style=" max-width: 35px; " src="stop.png"></button>
+            </div>
+            <div>
+                <div class="header-content">
+                    <p id="paragraph_one"></p>
+                    <p id="paragraph_two"></p>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="container">
+                <div class="left">
+                    <div class="host-count">
+                        <div class="host-count-header">
+                            <h2></h2><h2></h2><h2></h2>
+                        </div>
+                        <div class="host-rect">
+                            <h2></h2><h2></h2><h2></h2>
+                        </div>
+                    </div>
+                    <div class="host-count2">
+                        <div class="host-count2-header">
+                            <h2></h2><h2></h2><h2></h2>
+                        </div>
+                        <div class="host-rect2">
+                            <h2></h2><h2></h2><h2></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle"></div>
+                <div class="right">
+                    <div class="host-title"></div>
+                    <div class="table_wrapper">
+                        <table id="list-view-side1" class="list-table" >
+                        </table>
+                        <div class="table_middle"></div>
+                        <table id="list-view-side2" class=" list-table">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div>
+                <h3 id="bottom-center"></h3>
+            </div>
+            
+            <div></div>
+        </div>
+        <div class="pop_wrapper" style="display: none;">
+            <div class="pop_header">
+                <div class="new_header">
+                    <div>
+                        <button style="background:none;border:none;"> <img style=" max-width: 35px; " src="stop.png"></button>
+                    </div>
+                    <div>
+                        <div class="pop-content">
+                            <p id="paragraph_three"></p>
+                            <p id="paragraph_four"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pop_body">
+                <div class="pop_left">
+                    <img src="round.png">
+                </div>
+                <div class="pop_right">
+                    <h1 class="mood"></h1>
+                    <div class="pop_middle1">
+                        <h1 class="pop_content"></h1><h1 class="pop_content2"></h1>
+                    </div>
+                    <div class="pop_middle2">
+                        <h1 class="pop_middle"></h1><h1  class="pop_middle2"></h1>
+                    </div>
+                    <div class="pop_middle3">
+                        <h1></h1>
+                        <p>3</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pop_bottom">
+                <div class="full-date">
+                    <p class="time"></p>
+                    <p class="date"><p/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-analytics.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+        <script src="script.js" ></script>
+    </body>
+</html>

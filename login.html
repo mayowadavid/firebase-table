@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+    </style>
+</head>
+
+<body id="main">
+    <div style="
+        max-width: 470px;
+        margin: 100px auto;
+    ">
+        <div>
+            <h3>Login</h3>
+            <div style="
+        margin-bottom: 15px;
+    ">
+                <input id="email" type="email" placeholder="Email Address" style="
+        width: calc(100% - 23px);
+        height: 40px;
+        border-radius: 2px;
+        font-size: 18px;
+        padding: 2px 9px;
+    ">
+            </div>
+            <div style="
+        margin-bottom: 15px;
+    ">
+                <input id="password" type="password" placeholder="Password" style="
+        width: calc(100% - 23px);
+        height: 40px;
+        border-radius: 2px;
+        font-size: 18px;
+        padding: 2px 9px;
+    ">
+            </div>
+            <div style="
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-content: flex-end;
+        column-gap: 14px;
+    ">
+                <button type="button" onclick="login()" style="
+        background: #000;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        font-size: 22px;
+        width: 100%;
+    ">Login</button>
+
+                <button type="button" onclick="register()" style="
+        background: #000;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        font-size: 22px;
+        width: 100%;
+    ">Register</button>
+            </div>
+        </div>
+    </div>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+
+    <script>
+function requestFullScreen(element) {
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+    if (requestMethod) { // Native full screen.
+        requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+        var wscript = new ActiveXObject("WScript.Shell");
+        if (wscript !== null) {
+            wscript.SendKeys("{F11}");
+        }
+    }
+}
+
+
+        // Set the configuration for your app
+            // TODO: Replace with your project's config object
+            var config = {
+                apiKey: "AIzaSyDUWdMeUsdCashx-0kNEOAKDEvk1_9-IK8",
+                authDomain: "localhost",
+                // For databases not in the us-central1 location, databaseURL will be of the
+                // form https://[databaseName].[region].firebasedatabase.app.
+                // For example, https://your-database-123.europe-west1.firebasedatabase.app
+                databaseURL: "https://test2-df4e3-default-rtdb.firebaseio.com",
+                storageBucket: "test2-df4e3.appspot.com"
+            };
+            firebase.initializeApp(config);
+            
+        //observer logged in
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+                var uid = user.uid;
+                // ...
+
+                //go to index
+            } else {
+                // User is signed out
+                // ...
+            }
+        });
+
+
+
+        function register() {
+            var email = $("#email").val();
+            var password = $("#password").val();
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in 
+					requestFullScreen(document.body);
+
+                    var user = userCredential.user;
+                    window.location.href = "index.html";
+					requestFullScreen(document.body);
+
+                    // ...
+                })
+                .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+					alert(errorMessage);
+                    // ..
+                });
+        }
+
+
+
+        function login() {
+            var email = $("#email").val();
+            var password = $("#password").val();
+            firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in
+					requestFullScreen(document.body);
+
+                    var user = userCredential.user;
+
+                    window.location.href = "index.html";
+                    // ...
+                })
+                .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+					alert(errorMessage);
+                });
+        }
+
+    </script>
+</body>
+
+</html>
